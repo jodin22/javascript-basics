@@ -41,11 +41,20 @@
 </body>
 
 <script>
-  let randomNumber = Math.floor(Math.random()) + 1;
+  let randomNumber = Math.floor(Math.random() * 100) + 1; // before any changes, the right number to guess is always 1 and that is 
+  //not how the game should be. add console.log(randomNumber) to see what it is each time the code runs. do this here and 
+  //after line 123. Math.random is only for 0 to 1, e.g. 0.5675493843. and Math.floor rounds it down to the nearest whole number
+  //random decimal numbers between 0 and 1 will always return 0 when rounding down, so adding 1 to it will always return 1.
+  // multiply the random number by 100 before we round it down. The following would give us a random number between 0 and 99
+  // Hence us wanting to add 1, to give us a random number between 1 and 100
+  console.log(randomNumber); // shows what the random number is
 
   const guesses = document.querySelector('.guesses');
   const lastResult = document.querySelector('.lastResult');
-  const lowOrHi = document.querySelector('lowOrHi');
+  const lowOrHi = document.querySelector('.lowOrHi'); // since the querySelector is using a css selector, when you go to line 
+  // 38 to see the p class lowOrHi, you know class should have a dot for the css selector, so add the dot. then save and refresh and 
+  // the console now shows the p element with class.
+  console.log(lowOrHi); // since the error is for lowOrHi, using console.log is helpful to see what is going on.
   const guessSubmit = document.querySelector('.guessSubmit');
   const guessField = document.querySelector('.guessField');
 
@@ -74,7 +83,9 @@
       if(userGuess < randomNumber) {
         lowOrHi.textContent = 'Last guess was too low!';
       } else if(userGuess > randomNumber) {
-        lowOrHi.textContent = 'Last guess was too high!';
+        lowOrHi.textContent = 'Last guess was too high!'; // error was TypeError can't set properties of null. this means 
+        // you are trying to do something to a null. the earliest lowOrHi in the script is on line 48, the const lowOrHi 
+        // add console.log(lowOrHi); to line 51, save and refresh. this shows null in the console. 
       }
     }
 
@@ -82,7 +93,7 @@
     guessField.value = '';
     guessField.focus();
   }
-  guessSubmit.addeventListener('click', checkGuess);
+  guessSubmit.addEventListener('click', checkGuess); // error was addeventListener was not a function. this is a spelling error
 
   function setGameOver() {
 	  guessField.disabled = true;
@@ -90,7 +101,7 @@
 	  resetButton = document.createElement('button');
 	  resetButton.textContent = 'Start new game';
 	  document.body.appendChild(resetButton);
-	  resetButton.addeventListener('click', resetGame);
+	  resetButton.addEventListener('click', resetGame); // error was addeventListener was not a function. this is a spelling error
   }
 
   function resetGame() {
@@ -109,7 +120,8 @@
 
 	  lastResult.style.backgroundColor = 'white';
 
-	  randomNumber = Math.floor(Math.random()) + 1;
+	  randomNumber = Math.floor(Math.random() * 100) + 1;
+      console.log(randomNumber); //shows what the random number is
   }
 </script>
 </html>
