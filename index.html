@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Page Title</title>
+    </head>
+
+    <body>
+        <script>
+            // Your javascript goes here
+            /* 
+            alert("Hello, World!");
+
+            function ask(question, yes, no) { // function declaration with 3 parameters
+                if (confirm(question)) yes(); // is confirm a built in method with a cancel and OK option?
+                else no();  // if true, then does the yes(). if false, then does the no()
+            }
+
+            ask( // calls the ask function. passes the question and two ()'s. () is for yes and no.
+                "Do you agree. Can be any question?", // this is the question that is passed to the function
+                // function() {alert("You agreed.");},
+                // function() {alert("You cancelled the execution.");}
+                () => alert("You agreed. Can be any text."), // arrow function. this is the yes that is passed to the function
+                () => alert("You cancelled the execution. Can be any text.") //arrow function. this is the no that is passed to the function
+            );
+
+            function sayHi() { // function declaration with no parameters
+                alert("Hello, Howdy, How's it going?");
+            }
+
+            let func = sayHi; // function expression is assigned to the variable func
+            func(); // func with () will call the function
+            sayHi(); // or can just call the function by name
+
+            // Fundamentals Part 3 - Practice
+            function add7(number) { // Practice #1
+                let sum = number + 7;
+                alert(sum); // the function alerts the answer
+            }
+
+            add7(42);  // calls the function
+
+            function multiply(number1, number2) { // Practice #2
+                let product = number1 * number2;
+                return product;
+            }
+
+            alert(multiply(2, 98)); // calls the function and alerts the answer
+
+            function capitalize(string) { // Practice #3
+                let firstTry = string;
+                let secondTry = firstTry.slice(0,1);  // gets the first letter
+                let thirdTry = firstTry.slice(1);  // gets the rest of the string starting at the second letter
+                let showNewWord = secondTry.toUpperCase() + thirdTry.toLowerCase(); //capitalize first letter
+                // concatenate rest of the word as lowercase
+                return showNewWord;
+            }
+
+            alert(capitalize("wEB DEveLOPMent")); // calls the function and alerts the answer
+
+            function lastLetter(string) {  // Practice #4
+                let result = string.substr(-1); // gets the last letter. a negative number starts 
+                // at the end of the string
+                return result;
+                }
+
+            alert(lastLetter("Peace")); // calls the function and alerts the answer
+
+            */
+
+            // From the Problem Solving part of JavaScript Foundations: FizzBuzz example
+            
+            /* Write a program that allows the user to enter a number, print each number between one and the number 
+            the user entered, but for numbers that divide by three without a remainder print Fizz instead. For numbers
+            that divide by 5 without a remainder print Buzz and finally for numbers that divide by both three and
+            five without a remainder print FizzBuzz. */
+            
+            let answer = parseInt(prompt("Please enter the number you would like to FizzBuzz up to: "));
+            //prompt is wrapped inside parseInt so a number is returned from the user's input. 
+            alert(answer); /* it's ok to show the number, but make sure to not show the number in your loop. instead 
+            have it print to the console b/c alert makes you press enter each time a new number needs to be shown and this 
+            can take a long time for large numbers */
+
+            /* loop from 1 to the entered number. a for-loop.
+            variable i is assigned a value of 1. i <= answer is the condition. it will loop until i is
+            greater than answer. i++ increments i by 1 every iteration. ex, if user enters 10, then this loop will 
+            print numbers 1 to 10 to the console. */
+
+            for (let i = 1; i <= answer; i++) {
+
+                if (i % 3 === 0 && i % 5 === 0) { // if the current number is divisible by 3 AND 5, then it prints FizzBuzz
+                    console.log(i + " FizzBuzz");
+                } else if (i % 3 === 0) {  // modulus returns the remainder. if the division by 3 has no remainder then it means 
+                  console.log(i + " Fizz");  // the current number during the count up is divisible by 3 and will print 
+                  // Fizz instead of the current number
+                } else if (i % 5 === 0) { // if division by 5 has no remainder then the current number during the count up
+                    console.log(i + " Buzz"); // will not print and instead Buzz will print
+                } else {
+                    console.log(i); // if none of the above are true, then it prints the current number during the count up
+                }  
+                // the beginning of the for loop is just for the counter i, and when to stop the counter, and how much to 
+                // increase the counter.
+
+                // the inside of the loop is checking if the current number during the count up satisfies a condition
+                // when that condition is met, it prints something and goes to the next iteration.  
+                /* need the if statement of (3 AND 5) first b/c if i was divisible by 3, it would print Fizz and 
+                then move on to the next number in the iteration, even if i was divisible by 5 as well */
+
+            }
+        </script> 
+    </body>
+</html>
